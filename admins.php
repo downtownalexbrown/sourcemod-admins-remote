@@ -16,7 +16,7 @@
 
         ftp_get($conn_id, './admins', '/csgo/addons/sourcemod/configs/admins_simple.ini', FTP_ASCII, 0);
 
-        file_put_contents("admins", "\"" . $steamid . "\"                       \"flags\" \n", FILE_APPEND);
+        file_put_contents("admins", "\"" . $steamid . "\"                       \"flags\" \\\\ $alias \n", FILE_APPEND);
         $upload = ftp_put($conn_id, '/csgo/addons/sourcemod/configs/admins_simple.ini', './admins', FTP_ASCII);
 
         ftp_close($conn_id);  
